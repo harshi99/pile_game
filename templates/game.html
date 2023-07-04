@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Piles of Stones - Game</title>
+</head>
+<body>
+    <h1>Piles of Stones - Game</h1>
+    <h2>Player: {{ current_player }}</h2>
+    <h3>Stone Piles:</h3>
+    <p>Pile 1: {{ piles[0] }}</p>
+    <p>Pile 2: {{ piles[1] }}</p>
+    <p>Pile 3: {{ piles[2] }}</p>
+
+    <form action="/game" method="POST">
+        <label for="stones">Number of Stones to Pick:</label>
+        <input type="number" id="stones" name="stones" min="{{ min_pick }}" max="{{ max_pick }}" required><br>
+
+        <input type="hidden" name="pile_index" value="{{ pile_index }}">
+        <input type="hidden" name="current_player" value="{{ current_player }}">
+        <input type="hidden" name="pile1" value="{{ piles[0] }}">
+        <input type="hidden" name="pile2" value="{{ piles[1] }}">
+        <input type="hidden" name="pile3" value="{{ piles[2] }}">
+        <input type="submit" value="Pick Stones">
+    </form>
+</body>
+</html>
