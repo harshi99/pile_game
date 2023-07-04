@@ -11,6 +11,9 @@
     <p>Pile 2: {{ piles[1] }}</p>
     <p>Pile 3: {{ piles[2] }}</p>
 
+    <h3>Minimum Number of Stones to Pick: {{ min_pick }}</h3>
+    <h3>Maximum Number of Stones to Pick: {{ max_pick }}</h3>
+
     <form action="/game" method="POST">
         <label for="stones">Number of Stones to Pick:</label>
         <input type="number" id="stones" name="stones" min="{{ min_pick }}" max="{{ max_pick }}" required><br>
