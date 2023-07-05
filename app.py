@@ -51,7 +51,7 @@ def game():
             }
 
             return render_template('game.html', player1=player1, player2=player2, judge=judge, piles=piles,
-                                   min_pick=min_pick, max_pick=max_pick, current_player=current_player)
+                                   min_pick=min_pick, max_pick=max_pick, current_player=current_player,scores=scores)
 
         pile_index = int(request.form['pile_index'])
         stones = int(request.form['stones'])
@@ -87,10 +87,10 @@ def game():
                                    scores=scores)
 
         return render_template('game.html', player1=player1, player2=player2, judge=judge, piles=piles,
-                               min_pick=min_pick, max_pick=max_pick, current_player=current_player)
+                               min_pick=min_pick, max_pick=max_pick, current_player=current_player,scores=scores)
 
     return render_template('game.html', player1=player1, player2=player2, judge=judge, piles=piles,
-                           min_pick=min_pick, max_pick=max_pick, current_player=current_player)
+                           min_pick=min_pick, max_pick=max_pick, current_player=current_player,scores=scores)
 
 @app.route('/result')
 def result():
