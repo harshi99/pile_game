@@ -5,25 +5,35 @@
 </head>
 <body>
     <h1>Piles of Stones - Game</h1>
-    <h2>Player: {{ current_player }}</h2>
+
+    <h2>Judge: {{ judge }}</h2>
+    <h2>Current Player: {{ current_player }}</h2>
+
+    <h3>Scores:</h3>
+    <p>{{ player1 }}: {% if scores %}{{ scores['player1'] }}{% else %}0{% endif %}</p>
+    <p>{{ player2 }}: {% if scores %}{{ scores['player2'] }}{% else %}0{% endif %}</p>
+
+    
+
     <h3>Stone Piles:</h3>
     <p>Pile 1: {{ piles[0] }}</p>
     <p>Pile 2: {{ piles[1] }}</p>
     <p>Pile 3: {{ piles[2] }}</p>
 
-    <h3>Minimum Number of Stones to Pick: {{ min_pick }}</h3>
-    <h3>Maximum Number of Stones to Pick: {{ max_pick }}</h3>
-
+    <h3>Pick Stones:</h3>
     <form action="/game" method="POST">
-        <label for="stones">Number of Stones to Pick:</label>
-        <input type="number" id="stones" name="stones" min="{{ min_pick }}" max="{{ max_pick }}" required><br>
-
-        <input type="hidden" name="pile_index" value="{{ pile_index }}">
         <input type="hidden" name="current_player" value="{{ current_player }}">
-        <input type="hidden" name="pile1" value="{{ piles[0] }}">
-        <input type="hidden" name="pile2" value="{{ piles[1] }}">
-        <input type="hidden" name="pile3" value="{{ piles[2] }}">
-        <input type="submit" value="Pick Stones">
+        <label for="pile_index">Select Pile:</label>
+        <select id="pile_index" name="pile_index">
+            <option value="0">Pile 1</option>
+            <option value="1">Pile 2</option>
+            <option value="2">Pile 3</option>
+        </select>
+
+        <label for="stones">Number of Stones to Pick:</label>
+        <input type="number" id="stones" name="stones" min="{{ min_pick }}" max="{{ max_pick }}" required>
+
+        <input type="submit" value="Pick">
     </form>
 </body>
 </html>

@@ -5,10 +5,13 @@
 </head>
 <body>
     <h1>Piles of Stones - Result</h1>
-    <h2>Winner: {{ winner }}</h2>
 
-    <h3>Player 1: {{ player1 }}</h3>
-    <h3>Player 2: {{ player2 }}</h3>
-    <h3>Judge: {{ judge }}</h3>
+    <h2>Judge: {{ judge }}</h2>
+
+    <h3>Winner: {{ winner }}</h3>
+
+    <h4>Scores:</h4>
+    <p>{{ player1 }}: {{ scores['player1'] }}</p>
+    <p>{{ player2 }}: {{ scores['player2'] }}</p>
 </body>
 </html>
